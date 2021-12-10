@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Registration</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <style type="text/css">
+        #ui{
+            background-color: #888;
+            padding: 30px;
+            margin-top: 50px;
+            border-radius: 10px;
+        }
+        #ui label, h1, h3{
+            color: #fff;
+        }
+        #uui{
+        color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+                <div id="ui">
+                    <h2 class="text-center">User Register</h2>
+                    <form class="form-group text-center" method="post">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <label>First Name:</label>
+                                <input type="text" name="first_name" class="form-control" placeholder="Enter your First Name"><br>
+                            </div>
+                            <div class="col-lg-6">
+                                <label>Last Name:</label>
+                                <input type="text" name="last_name" class="form-control" placeholder="Enter your Last Name">
+                            </div>
+                        </div>
+                        <label>E-mail:</label>
+                        <input type="email" name="email" class="form-control" placeholder="Enter you E-mail">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <label>Username:</label>
+                                <input type="text" name="username" class="form-control" placeholder="Enter your Username">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <label>Password:</label>
+                                <input type="password" name="password1" class="form-control" placeholder="Type Password">
+                            </div>
+                            <div class="col-lg-6">
+                                <label>Re-Type Password:</label>
+                                <input type="password" name="password2" class="form-control" placeholder="Re-Type Password">
+                            </div>
+                        </div><br>
+                        <input type="submit" name="" value="Register" class="btn btn-primary btn-block btn-lg">
+<!--                        <a href="{% url 'login' %}">-->
+<!--                            <h3>Login</h3>-->
+<!--                        </a>-->
+                    </form>
+                    <div id="uui" class="row text-center">
+                        <div class="col-lg-12">
+                            {% for message in messages %}
+                                <h3>{{message}}</h3>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+    </div>
+</body>
+</html>
